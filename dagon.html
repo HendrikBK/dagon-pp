@@ -9,112 +9,404 @@
     </title>
     <link rel="icon" href="images/cover.jpg" type="image/x-cover">
     <style>
+        body {
+            margin-left: 10%;
+            margin-right: 10%;
+        }
 
+        h1,h2,h3,h4,h5,h6 {
+            text-align: center; /* all headings centered */
+            clear: both;
+        }
 
+        p {
+            margin-top: .5em;
+            text-align: justify;
+            margin-bottom: .5em;
+        }
 
+        p + p {
+            text-indent: 1em;
+        }
+
+        hr {
+            width: 33%;
+            margin-top: 2em;
+            margin-bottom: 2em;
+            margin-left: 33.5%;
+            margin-right: 33.5%;
+            clear: both;
+        }
+
+        hr.tb   {
+            width: 45%;
+            margin-left: 27.5%;
+            margin-right: 27.5%;
+        }
+
+        hr.chap {
+            width: 65%;
+            margin-left: 17.5%;
+            margin-right: 17.5%;
+            }
+
+        @media print {
+            hr.chap {
+                display: none;
+                visibility: hidden;
+            }
+        }
+
+        hr.full {
+            width: 95%;
+            margin-left: 2.5%;
+            margin-right: 2.5%;
+        }
+
+        div.chapter {page-break-before: always;}
+        h2.nobreak  {page-break-before: avoid;}
+
+        /*ul.index { list-style-type: none; }
+        li.ifrst {
+            margin-top: 1em;
+            text-indent: -2em;
+            padding-left: 1em;
+        }
+        li.indx  {
+            margin-top: .5em;
+            text-indent: -2em;
+            padding-left: 1em;
+        }
+        li.isub1 {
+            text-indent: -2em;
+            padding-left: 2em;
+        }
+        li.isub2 {
+            text-indent: -2em;
+            padding-left: 3em;
+        }
+        li.isub3 {
+            text-indent: -2em;
+            padding-left: 4em;
+        }
+        li.isub4 {
+            text-indent: -2em;
+            padding-left: 5em;
+        }*/
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /*table.autotable    { border-collapse: collapse; }
+        table.autotable td,
+        table.autotable th { padding: 0.25em; }
+
+        .tdl      {text-align: left;}
+        .tdr      {text-align: right;}
+        .tdc      {text-align: center;}*/
+
+        /* Page numbers */
+
+        .pagenum { /* uncomment the next line for invisible page numbers */
+            /*  visibility: hidden;  */
+            position: absolute;
+            left: 92%;
+            font-size: small;
+            text-align: right;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-indent: 0;
+        }
+
+        /*.linenum {
+            position: absolute;
+            top: auto;
+            left: 4%;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+        }*/
+
+        blockquote {
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-left: 5%;
+            margin-right: 10%;
+        }
+
+        /*.sidenote {
+            width: 20%;
+            padding-bottom: .5em;
+            padding-top: .5em;
+            padding-left: .5em;
+            padding-right: .5em;
+            margin-left: 1em;
+            float: right;
+            clear: right;
+            margin-top: 1em;
+            font-size: small;
+            color: black;
+            background: #eeeeee;
+            border: 1px dashed;
+        }*/
+
+        /* Images */
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Footnotes */
+        .footnotes        {border: 1px dashed;}
+
+        .footnote         {margin-left: 10%; margin-right: 10%; font-size: 0.9em;}
+
+        .footnote .label  {position: absolute; right: 84%; text-align: right;}
+
+        .fnanchor {
+            vertical-align: super;
+            font-size: .8em;
+            text-decoration:
+            none;
+        }
+
+        /* Poetry */
+        /* uncomment the next line for centered poetry */
+        /* .poetry-container {display: flex; justify-content: center;} */
+        .poetry-container {text-align: center;}
+        .poetry           {text-align: left; margin-left: 5%; margin-right: 5%;}
+        .poetry .stanza   {margin: 1em auto;}
+        .poetry .verse    {text-indent: -3em; padding-left: 3em;}
+
+        /* Transcriber's notes */
+        .transnote {background-color: #E6E6FA;
+            color: black;
+            font-size:small;
+            padding:0.5em;
+            margin-bottom:5em;
+            font-family:sans-serif, serif;
+        }
+
+        /* General CSS */
+
+        *.center {
+            text-align: center;
+            text-indent: 0;
+        }
+
+        *.left {
+            text-align: left;
+        }
+
+        *.right {
+            text-align: right;
+        }
+
+        p.noindent {
+            text-indent: 0;
+        }
+
+        /* Transform */
+
+        h1, h3, *.uc {
+            text-Transform: uppercase;
+        }
+
+        *.smcap {
+            font-variant: small-caps;
+        }
+
+        *.allsmcap {
+            font-variant: small-caps;
+            text-Transform: lowercase;
+        }
+
+        /* Margins and padding */
+
+        *.mt-1 {
+            margin-top: 1em;
+        }
+
+        *.mb-1 {
+            margin-bottom: 1em;
+        }
+
+        *.ml-1 {
+            margin-left: 1em;
+        }
+
+        *.mr-1 {
+            margin-right: 1em;
+        }
+
+        *.mx-1 {
+            margin-left: 1em;
+            margin-right: 1em;
+        }
+
+        *.my-1 {
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+
+        *.pt-1 {
+            padding-top: 1em;
+        }
+
+        *.pr-1 {
+            padding-right: 1em;
+        }
+
+        *.pb-1 {
+            padding-bottom: 1em;
+        }
+
+        *.pl-1 {
+            padding-left: 1em;
+        }
+
+        *.px-1 {
+            padding-left: 1em;
+            padding-right: 1em;
+        }
+
+        *.py-1 {
+            padding-top: 1em;
+            padding-bottom: 1em;
+        }
+
+        /* Breaks */
+
+        body > div,
+        *.break {
+            page-break-before: always;
+        }
+
+        *.larger {
+            font-size: 150%;
+        }
+
+        ul {
+            list-style-type: none;
+            text-transform: uppercase;
+            padding-left: 5em;
+        }
+
+        section > section + section {
+            margin-top: 5em;
+        }
     </style>
 </head>
 <body>
+<div id="frontispieace">
+<header>
+<p class="center larger uc">The Place Called Dagon</p>
 
-
-<h1>
-  THE PLACE CALLED DAGON
-</h1>
-
-<p>
-  <span style="margin-left: 1.0em;">Herbert Gorman</span>
-</p>
-
-
-<hr class="chap x-ebookmaker-drop">
-<div class="chapter">
-  <h2 class="nobreak" id="Books_by_HERBERT_GORMAN">
-    <span class="smcap">Books by</span> HERBERT GORMAN
-  </h2>
-</div>
-
-
-<p>
-  <span style="margin-left: 1.0em;">GOLD BY GOLD</span><br>
-  <span style="margin-left: 1.0em;">THE FOOL OF LOVE</span><br>
-  <span style="margin-left: 1.0em;">THE TWO VIRGINITIES</span><br>
-  <span style="margin-left: 1.0em;">THE PLACE CALLED DAGON</span><br>
-  <span style="margin-left: 1.0em;">THE PROCESSION OF MASKS</span><br>
-  <span style="margin-left: 1.0em;">NOTATIONS FOR A CHIMAERA</span><br>
-  <span style="margin-left: 1.0em;">THE PETERBOROUGH ANTHOLOGY</span><br>
-  <span style="margin-left: 1.0em;">THE BARCAROLE OF JAMES SMITH</span><br>
-  <span style="margin-left: 1.0em;">HAWTHORNE: A STUDY IN SOLITUDE</span><br>
-  <span style="margin-left: 1.0em;">JAMES JOYCE: HIS FIRST FORTY YEARS</span><br>
-  <span style="margin-left: 1.0em;">A VICTORIAN AMERICAN: HENRY WADSWORTH LONGFELLOW</span>
-</p>
-
-<hr class="chap x-ebookmaker-drop">
-
-<div class="chapter">
-<p>
-  <span style="margin-left: 1.0em;">The Place Called</span><br>
-  <span style="margin-left: 1.0em;">Dagon</span><br>
-  <br>
-  <span style="margin-left: 1.0em;">By Herbert Gorman</span><br>
-  <br>
-  <br>
-  <span style="margin-left: 1.0em;">NEW YORK</span><br>
-  <br>
-  <span style="margin-left: 1.0em;">George H. Doran Company</span>
-</p>
+<p class="center">Herbert Gorman</p>
+</header>
 </div>
 
 <hr class="chap x-ebookmaker-drop">
 
-<div class="chapter">
-<p>
-  <span style="margin-left: 1.0em;">COPYRIGHT, 1927,</span><br>
-  <span style="margin-left: 1.0em;">BY GEORGE H. DORAN COMPANY</span><br>
-  <br>
-  <span style="margin-left: 1.0em;">[Illustration]</span><br>
-  <br>
-  <br>
-  <span style="margin-left: 1.0em;">THE PLACE CALLED DAGON</span><br>
-  <span style="margin-left: 1.0em;">A</span><br>
-  <span style="margin-left: 1.0em;">PRINTED IN THE UNITED STATES OF AMERICA</span>
+<div id="adv">
+
+<header>
+<p class="center"><span class="smcap">Books by</span> <span class="uc">Herbert Gorman</span></p>
+</header>
+
+<ul>
+  <li><p>Gold by Gold</p></li>
+  <li><p>The Fool of Love</p></li>
+  <li><p>The Two Virginities</p></li>
+  <li><p>The Place Called Dagon</p></li>
+  <li><p>The Procession of Masks</p></li>
+  <li><p>Notations for a Chimaera</p></li>
+  <li><p>The Peterborough Anthology</p></li>
+  <li><p>The Barcarole of James Smith</p></li>
+  <li><p>Hawthorne: A Study in Solitude</p></li>
+  <li><p>James Joyce: His First Forty Years</p></li>
+  <li><p>A Victorian American: Henry Wadsworth Longfellow</p></li>
+</ul>
+
+</div>
+
+<hr class="chap x-ebookmaker-drop">
+
+<section id="titlepage">
+
+  <h1>The Place Called<br>
+  Dagon</h1>
+
+<p class="center">By Herbert Gorman</p>
+
+<p class="center allsmcap">New York</p>
+
+<p class="center">George <abbr>H.</abbr> Doran Company</p>
+</section>
+
+<hr class="chap x-ebookmaker-drop">
+
+<div id="copyright">
+<p class="center">Copyright, 1927,<br>
+  by George <abbr>H.</abbr> Doran Company</p>
+
+<p class="center allsmcap">The Place Called Dagon</p>
+
+<p class="center allsmcap">Printed in the United States of America</p>
+
+</div>
+
+<hr class="chap x-ebookmaker-drop">
+
+<div id="dedication">
+<p class="center">
+  <span class="uc">To<br>
+  <span class="larger">Martha</span></span><br>
+  a mystery among<br>
+  mysteries
 </p>
 </div>
 
 <hr class="chap x-ebookmaker-drop">
 
-<div class="chapter">
-<p>
-  <span style="margin-left: 1.0em;">TO</span><br>
-  <br>
-  <span style="margin-left: 1.0em;">MARTHA</span><br>
-  <br>
-  <span style="margin-left: 1.0em;">a mystery among</span><br>
-  <span style="margin-left: 1.0em;">mysteries</span>
-</p>
-</div>
+<section id="contents">
 
+<h2 class="uc">Table of Contents</h2>
+
+<ul>
+<li><p><a href="#chapter-1">Chapter One</a></p></li>
+<li><p><a href="#chapter-2">Chapter Two</a></p></li>
+<li><p><a href="#chapter-3">Chapter Three</a></p></li>
+<li><p><a href="#chapter-4">Chapter Four</a></p></li>
+<li><p><a href="#chapter-5">Chapter Five</a></p></li>
+<li><p><a href="#chapter-6">Chapter Six</a></p></li>
+<li><p><a href="#chapter-7">Chapter Seven</a></p></li>
+<li><p><a href="#chapter-8">Chapter Eight</a></p></li>
+<li><p><a href="#chapter-9">Chapter Nine</a></p></li>
+<li><p><a href="#chapter-10">Chapter Ten</a></p></li>
+<li><p><a href="#chapter-11">Chapter Eleven</a></p></li>
+</ul>
+</section>
 
 <hr class="chap x-ebookmaker-drop">
-<div class="chapter">
+
+<section id="halftitlepage">
 
 <p><span class="pagenum" id="Page_9">[Pg 9]</span></p>
 
-
-  <h2 class="nobreak" id="THE_PLACE_CALLED_DAGON">
-    THE PLACE CALLED DAGON
-  </h2>
-</div>
-
+  <h2 class="uc">The Place Called Dagon</h2>
+</section>
 
 <hr class="chap x-ebookmaker-drop">
-<div class="chapter">
-  <h2 class="nobreak" id="Chapter_One">
-    Chapter One
-  </h2>
-</div>
 
+<section id="chapter-1">
+  <h2>Chapter One</h2>
+<section id="chapter-1-1">
 
-<p>I</p>
+<h3>I</h3>
 
 <p>Doctor Dreeme, turning sleepily on his pillow, heard the clatter of a
 horse’s hoofs coming down the steep Leeminster Road. The steely clash
@@ -285,9 +577,12 @@ nerves, but, considering the matter deliberately, he knew that it was
 none of these likely causes. He possessed no nerves; he was not weary
 of his loneliness; his mind was not too idle. It was something outside
 of him pushing gently against his mind.</p>
+</section>
 
 
-<p>II</p>
+<section id="chapter-1-2">
+
+<h3>II</h3>
 
 <p>The horse thudded ponderously up the road.</p>
 
@@ -401,11 +696,14 @@ seemed to croak hoarsely.</p>
 <p>“All right! All right!” the voice snapped immediately, and Wagner stood
 back and motioned Doctor Dreeme toward the patch of yellow light that
 poured through the half-opened door.</p>
+</section>
+
+
+<section id="chapter-1-3">
 
 <p><span class="pagenum" id="Page_21">[Pg 21]</span></p>
 
-
-<p>III</p>
+<h3>III</h3>
 
 <p>It was a small room into which Dreeme ventured and one in which the
 walls seemed to push forward, an aspect intensified, perhaps, by the
@@ -714,21 +1012,22 @@ to his lips. At the same moment he heard Miles clucking to the horse.
 Blundering through the dark, he stumbled toward the road. Before he
 reached the gate it began to rain furiously, a heavy roaring down-pour
 that soaked him to the skin.</p>
-
+</section>
+</section>
 
 <hr class="chap x-ebookmaker-drop">
-<div class="chapter">
+
+
+<section id="chapter-2">
 
 <p><span class="pagenum" id="Page_32">[Pg 32]</span></p>
 
 
-  <h2 class="nobreak" id="Chapter_Two">
-    Chapter Two
-  </h2>
-</div>
+  <h2>Chapter Two</h2>
 
+<section id="chapter-2-1">
 
-<p>I</p>
+<h3>I</h3>
 
 <p>A rainy night abdicated to a warm sun-shot day. Dreeme, who had slept
 late after his disturbed rest, rose to a world that moved calmly and
@@ -892,9 +1191,10 @@ and peered curiously about.</p>
 
 <p>The young doctor descended the stairs slowly for the breakfast which
 had been prepared for him by his next-door neighbor, Mrs. Slater.</p>
+</section>
+<section id="chapter-2-2">
 
-
-<p>II</p>
+<h3>II</h3>
 
 <p>Mrs. Slater was methodical. It was her duty to run in during the
 morning with Dreeme’s breakfast and the mail which she collected at the
@@ -1345,9 +1645,10 @@ stone wall fearing to test the strength of his legs. Then he rose to
 his feet and tramped back through the burnt and brittle grass, crashing
 through <span class="pagenum" id="Page_58">[Pg 58]</span>the bushes to the road. He walked swiftly along the Leeminster
 Road to Marlborough without looking back.</p>
+</section>
 
-
-<p>III</p>
+<section id="chapter-2-3">
+<h3>III</h3>
 
 <p>The girl’s eyes were like wet violets, a soaked blue so deep as to
 be astonishing. Mrs. Slater had said: “Deborah.... This is Doctor
@@ -1612,21 +1913,20 @@ then.... Now what did that mean? He was growing reckless as well as
 nervously excitable. It was time to see Humphrey Lathrop. Decidedly,
 Marlborough was getting.... He progressed slowly to his own door and
 placed a hand upon the polished knob.</p>
-
+</section>
+</section>
 
 <hr class="chap x-ebookmaker-drop">
-<div class="chapter">
+
+<section id="chapter-3">
 
 <p><span class="pagenum" id="Page_69">[Pg 69]</span></p>
 
+  <h2>Chapter Three</h2>
 
-  <h2 class="nobreak" id="Chapter_Three">
-    Chapter Three
-  </h2>
-</div>
+<section id="chapter-3-1">
 
-
-<p>I</p>
+<h3>I</h3>
 
 <p>Doctor Humphrey Lathrop was so huge that it was difficult for him to
 move about even with the aid of the two gnarled canes that flanked
@@ -2338,21 +2638,20 @@ out his hand to the old doctor.</p>
 
 <p>“That’s the boy,” wheezed Lathrop, patting the back of his hand.
 “That’s the boy.”</p>
-
+</section>
+</section>
 
 <hr class="chap x-ebookmaker-drop">
-<div class="chapter">
+
+<section id="chapter-4">
 
 <p><span class="pagenum" id="Page_95">[Pg 95]</span></p>
 
+  <h2>Chapter Four</h2>
 
-  <h2 class="nobreak" id="Chapter_Four">
-    Chapter Four
-  </h2>
-</div>
+<section id="chapter-4-1">
 
-
-<p>I</p>
+<h3>I</h3>
 
 <p>Mrs. Slater moved, a black silhouette, across the yellow glow of the
 kerosene-lamp, bearing in chubby hands the last of the supper dishes.
@@ -2577,9 +2876,10 @@ the darkness of the mill. It was not strange that she had sent for
 him, after all. It would have been stranger if she had maintained her
 <span class="pagenum" id="Page_103">[Pg 103]</span>silence. Dreeme rose slowly from his chair and blew the light out.
 Well....</p>
+</section>
 
-
-<p>II</p>
+<section id="chapter-4-2">
+<h3>II</h3>
 
 <p>She was seated in an embrazure formed where a portion of the brick
 wall had fallen away and dropped into the yellow-scummed water of
@@ -3122,21 +3422,20 @@ twisted a trifle, and he knew that the mill was hidden, that if he
 looked back he would see nothing but the sprawling angle of a stone
 wall. An invisible weight seemed to fall from him. He had not realized
 he was so tired.</p>
-
+</section>
+</section>
 
 <hr class="chap x-ebookmaker-drop">
-<div class="chapter">
+
+<section id="chapter-5">
 
 <p><span class="pagenum" id="Page_122">[Pg 122]</span></p>
 
+  <h2>Chapter Five</h2>
 
-  <h2 class="nobreak" id="Chapter_Five">
-    Chapter Five
-  </h2>
-</div>
+<section id="chapter-5-1">
 
-
-<p>I</p>
+<h3>I</h3>
 
 <p>The girl beat with her hands against the door, whimpering softly as the
 steady concussions shook the white-washed planks. The morning sunlight
@@ -3719,9 +4018,10 @@ hall, and then the closing of the front door. Dreeme absently picked up
 the bill. On it was scrawled:</p>
 
 <p>“Even a fool may learn wisdom.”</p>
+</section>
 
-
-<p>II</p>
+<section id="chapter-5-2">
+<h3>II</h3>
 
 <p>The Reverend George Burroughs stretched his long yellow hand out and
 grasped a slice of bread. He made it a point to take the fattest
@@ -4081,21 +4381,20 @@ face.</p>
 
 <p>He lumbered heavily from his buggy and slid down the bank in a sitting
 posture, adjusting his steel-rimmed spectacles as he came.</p>
-
+</section>
+</section>
 
 <hr class="chap x-ebookmaker-drop">
-<div class="chapter">
+
+<section id="chapter-6">
 
 <p><span class="pagenum" id="Page_157">[Pg 157]</span></p>
 
+  <h2>Chapter Six</h2>
 
-  <h2 class="nobreak" id="Chapter_Six">
-    Chapter Six
-  </h2>
-</div>
+<section id="chapter-6-1">
 
-
-<p>I</p>
+<h3>I</h3>
 
 <p>Dreeme sat gloomily in front of Humphrey Lathrop and waited for the old
 doctor to deliver any advice that he might have to give.</p>
@@ -4182,9 +4481,10 @@ the gesture.</p>
 
 <p>“Don’t expect anything here,” he said after a moment. The shadow of
 night was in his eyes.</p>
+</section>
+<section id="chapter-6-2">
 
-
-<p>II</p>
+<h3>II</h3>
 
 <p>Dreeme walked down the road to his house. The night was extraordinarily
 clear, the heavens being covered with a huge wheel of glittering stars.
@@ -4212,9 +4512,10 @@ shadow said:</p>
 
 <p>“I do not hear you,” said Dreeme. His pace increased until he was
 trudging along at a furious rate.</p>
+</section>
 
-
-<p>III</p>
+<section id="chapter-6-3">
+<h3>III</h3>
 
 <p>In his study Dreeme turned the pages of the book impatiently. Finally
 he closed it and placed it upon the table. He would think. He wondered
@@ -4318,9 +4619,10 @@ rose up and reached for his hat. It would do no harm to take a walk
 anyway, to stroll in the cool of the evening as the Reverend <span class="pagenum" id="Page_166">[Pg 166]</span>George
 Burroughs would say. Dagon ... Dagon. He closed the door softly behind
 him and stood in the moonlight.</p>
+</section>
 
-
-<p>IV</p>
+<section id="chapter-6-4">
+<h3>IV</h3>
 
 <p>The burned mill stood in the bright moonlight, its charred door yawning
 on the road. It looked like the sun-dried skull of a buffalo resting
@@ -4867,21 +5169,23 @@ ghost in a white world, her blue eyes sparkling and her small mouth
 curled in a faint smile. Reaching out his hand he drew her toward him.</p>
 
 <p>“I’ve been waiting by the window all evening,” she said.</p>
-
+</section>
+</section>
 
 <hr class="chap x-ebookmaker-drop">
-<div class="chapter">
+
+<section id="chapter-7">
 
 <p><span class="pagenum" id="Page_185">[Pg 185]</span></p>
 
 
-  <h2 class="nobreak" id="Chapter_Seven">
+  <h2>
     Chapter Seven
   </h2>
-</div>
 
+<section id="chapter-7-1">
 
-<p>I</p>
+<h3>I</h3>
 
 <p>“Not that way,” said Dreeme hastily as Deborah instinctively turned up
 the Leeminster Road toward the Saccarac River.</p>
@@ -5056,9 +5360,10 @@ ghost-like form hurried up the path to the front door. Dreeme turned
 toward his own house, wondering why Deborah should have a brooch upon
 which was the finely-cut cameo of a goat’s head, the exact replica of
 the drawing he had wrenched from the dead hand of Wagner.</p>
+</section>
 
-
-<p>II</p>
+<section id="chapter-7-2">
+<h3>II</h3>
 
 <p>Dreeme heard the solemn-toned clock in the Slater house striking as he
 pushed his own unlatched door <span class="pagenum" id="Page_191">[Pg 191]</span>open and stepped into the narrow hall.
@@ -5623,21 +5928,22 @@ back to him.</p>
 <p>He could hear her feet walking down the hall, and he stood listening
 as the front door softly opened and then closed again. Leaning over he
 blew the light out and stood in the darkness, frowning.</p>
-
+</section>
+</section>
 
 <hr class="chap x-ebookmaker-drop">
-<div class="chapter">
+
+<section id="chapter-8">
 
 <p><span class="pagenum" id="Page_213">[Pg 213]</span></p>
 
-
-  <h2 class="nobreak" id="Chapter_Eight">
+  <h2>
     Chapter Eight
   </h2>
-</div>
 
+<section id="chapter-8-1">
 
-<p>I</p>
+<h3>I</h3>
 
 <p>When Dreeme awoke late in the morning he heard the heavy roar of rain
 on the roof, and, hurrying through his morning ablutions, he proceeded
@@ -5701,9 +6007,10 @@ him and that he would be all the better for it. The front of Humphrey
 Lathrop’s cottage, small and gray in the rain, loomed before him, and
 he opened the rickety gate <span class="pagenum" id="Page_216">[Pg 216]</span>and walked up the path. He would find out
 everything now, and he would not leave Humphrey until he did.</p>
+</section>
 
-
-<p>II</p>
+<section id="chapter-8-2">
+<h3>II</h3>
 
 <p>Dreeme pushed the untasted tumbler of apple-jack away with an
 expression of disgust, and stood up and pointed a questioning finger at
@@ -6249,9 +6556,10 @@ a swift and vanishing interruption of the parched season that had
 hovered over the valley. That had been but a few days ago, and yet how
 far away it seemed. Wonderingly he watched the rain beat against the
 window and listened to the whirring music that filled the cloudy air.</p>
+</section>
 
-
-<p>III</p>
+<section id="chapter-8-3">
+<h3>III</h3>
 
 <p>Walden Slater had drawn his rickety rocker back against the wall and
 he sat just outside the curtain of water that dripped from the eaves
@@ -6343,9 +6651,10 @@ is dull.”</p>
 <p>He handed it back without any thanks, and the preacher stowed it away
 in his pocket. Dreeme drifted back through the kitchen preparatory to
 returning to his study. The conversation was altogether too dull.</p>
+</section>
 
-
-<p>IV</p>
+<section id="chapter-8-4">
+<h3>IV</h3>
 
 <p>Dreeme was jerked out of a sound sleep by a strong hand grasping his
 shoulder. He started up with an uncontrollable cry of amazement.</p>
@@ -6402,21 +6711,23 @@ leaning his head closer to the farmer, did ask something.</p>
 place called Dagon!”</p>
 
 <p>They ran all the faster through the relentless rain.</p>
-
+</section>
+</section>
 
 <hr class="chap x-ebookmaker-drop">
-<div class="chapter">
+
+<section id="chapter-9">
 
 <p><span class="pagenum" id="Page_241">[Pg 241]</span></p>
 
 
-  <h2 class="nobreak" id="Chapter_Nine">
+  <h2>
     Chapter Nine
   </h2>
-</div>
 
+<section id="chapter-9-1">
 
-<p>I</p>
+<h3>I</h3>
 
 <p>As Dreeme, racing close at the heels of Walden Slater, circled the
 Westcott farm-house, he glanced up curiously at the windows. There was
@@ -6661,9 +6972,9 @@ those trees and there would probably be no pathway. But they would have
 to go on, for somewhere beyond the trees was the place called Dagon,
 and it was at Dagon that he would next meet Deborah. Sobbingly he
 climbed the slope at the heels of Walden Slater.</p>
-
-
-<p>II</p>
+</section>
+<section id="chapter-9-2">
+<h3>II</h3>
 
 <p>The trees reached out and took them in, circling about them in a massed
 formation. They were in the darkness<span class="pagenum" id="Page_250">[Pg 250]</span> of Briony Wood now, a darkness
@@ -6874,9 +7185,10 @@ in his cheeks, how tight his jaw was set. He could not make out Walden
 Slater’s face in the deceiving rainy light, but he imagined that it was
 set like his own, reflecting a determination that would be ruthless and
 unescapable when the time for action came.</p>
+</section>
 
-
-<p>III</p>
+<section id="chapter-9-3">
+<h3>III</h3>
 
 <p>This was Nigger Swamp at last. The dark road ran like a pencil line
 across the level expanse that waved in the rainy wind its monotonous
@@ -7140,21 +7452,24 @@ Dreeme’s ear said:</p>
 
 <p>The young doctor, his blood beating furiously, crept up to the bush,
 drew the branch aside, thrust his face forward, and looked downward.</p>
-
+</section>
+</section>
 
 <hr class="chap x-ebookmaker-drop">
-<div class="chapter">
+
+<section id="chapter-10">
 
 <p><span class="pagenum" id="Page_270">[Pg 270]</span></p>
 
 
-  <h2 class="nobreak" id="Chapter_Ten">
+  <h2>
     Chapter Ten
   </h2>
-</div>
+
+<section id="chapter-10-1">
 
 
-<p>I</p>
+<h3>I</h3>
 
 <p>He stared into a hollow that was filled with shifting forms, moving
 figures that were slices of darkness before the lanterns. Faces passed
@@ -7874,21 +8189,22 @@ perfectly.</p>
 <p>“You’ve got five shells left,” he said.</p>
 
 <p>“We’ll stop at the Westcott farm,” replied the farmer.</p>
-
+</section>
+</section>
 
 <hr class="chap x-ebookmaker-drop">
-<div class="chapter">
+
+<section id="chapter-11">
 
 <p><span class="pagenum" id="Page_298">[Pg 298]</span></p>
 
-
-  <h2 class="nobreak" id="Chapter_Eleven">
+  <h2>
     Chapter Eleven
   </h2>
-</div>
 
+<section id="chapter-11-1">
 
-<p>I</p>
+<h3>I</h3>
 
 <p>The twisting path through Briony Wood had never been traveled at such
 a speedy pace before. Walden Slater, carrying Deborah in his arms
@@ -8024,9 +8340,10 @@ he remembered the purpose that brought them back here. Where would
 Jeffrey Westcott be? Would <span class="pagenum" id="Page_304">[Pg 304]</span>he hide in the swamp while his years of
 evil knowledge went up in thick smoke and spurting flame? Walden Slater
 shifted Deborah from one shoulder to the other and ran all the faster.</p>
+</section>
 
-
-<p>II</p>
+<section id="chapter-11-2">
+<h3>II</h3>
 
 <p>A few men and women were gathered about the Westcott farm-house,
 gazing helplessly at the flame that thrust sudden tongues of fierce
@@ -8249,9 +8566,10 @@ his great shoulders bowed, his long lip dangling loose, his coat gaping
 and, through its opening, the revolver glistening. Dreeme suddenly felt
 exhausted, a complete exhaustion that was flesh-weariness and great
 relief mingled.</p>
+</section>
 
-
-<p>III</p>
+<section id="chapter-11-3">
+<h3>III</h3>
 
 <p>Humphrey Lathrop put his tea-cup down and wiped his huge pursing lips.
 He nodded slowly.</p>
@@ -8351,7 +8669,9 @@ that came smilingly at her heels.</p>
 astonishing.</p>
 
 
-<p>FINIS.</p>
+<p class="center uc">Finis.</p>
+</section>
+</section>
 
 </body>
 </html>

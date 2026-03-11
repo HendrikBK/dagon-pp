@@ -107,6 +107,7 @@
             font-weight: normal;
             font-variant: normal;
             text-indent: 0;
+            user-select: none;
         }
 
         /*.linenum {
@@ -200,7 +201,7 @@
 
         /* Transform */
 
-        h1, h2, h3, *.uc {
+        h1, h3, *.uc {
             text-Transform: uppercase;
         }
 
@@ -273,4 +274,18 @@
         body > div,
         *.break {
             page-break-before: always;
+        }
+
+        *.larger {
+            font-size: 150%;
+        }
+
+        ul {
+            list-style-type: none;
+            text-transform: uppercase;
+            padding-left: 5em;
+        }
+
+        section > section + section {
+            margin-top: 5em;
         }

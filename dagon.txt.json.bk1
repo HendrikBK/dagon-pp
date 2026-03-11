@@ -1,6 +1,6 @@
 {
-  "md5checksum": "3e175187de64a295c142d16a8153f07a",
-  "insertpos": "1667.17",
+  "md5checksum": "815b30e4b48e5a569a53c549870f2615",
+  "insertpos": "6974.33",
   "insertpospeer": "8110.0",
   "pagedetails": {
     "001": {
@@ -76,7 +76,7 @@
       "label": "Pg 14"
     },
     "013": {
-      "index": "223.49",
+      "index": "223.44",
       "style": "\"",
       "number": "+1",
       "label": "Pg 15"
@@ -376,7 +376,7 @@
       "label": "Pg 64"
     },
     "063": {
-      "index": "1459.14",
+      "index": "1459.9",
       "style": "\"",
       "number": "+1",
       "label": "Pg 65"
